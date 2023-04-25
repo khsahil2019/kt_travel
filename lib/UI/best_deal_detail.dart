@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class BestDealsDetail extends StatefulWidget {
   const BestDealsDetail() : super();
@@ -10,6 +11,38 @@ class BestDealsDetail extends StatefulWidget {
 }
 
 class _BestDealsDetailState extends State<BestDealsDetail> {
+  _openPopup(context) {
+    Alert(
+        context: context,
+        title: "LOGIN",
+        content: Column(
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                icon: Icon(Icons.account_circle),
+                labelText: 'Username',
+              ),
+            ),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                icon: Icon(Icons.lock),
+                labelText: 'Password',
+              ),
+            ),
+          ],
+        ),
+        buttons: [
+          DialogButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              "LOGIN",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          )
+        ]).show();
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -266,6 +299,7 @@ class _BestDealsDetailState extends State<BestDealsDetail> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        _openPopup(context);
                         // Navigator.push(
                         //   context,
                         //   MaterialPageRoute(

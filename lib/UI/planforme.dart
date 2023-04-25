@@ -12,13 +12,13 @@ class PlanForMe extends StatefulWidget {
 
 class _PlanForMeState extends State<PlanForMe> {
   @override
-  late String destination = "";
-  List destinationList = ["Car", "Bus", "Train", "Aeroplane"];
+  late String destination;
+  // List destinationList = ["Car", "Bus", "Train", "Aeroplane"];
   late String type;
   late String date;
   late String guest;
 
-  List<String> items = ["Car", "Bus", "Train", "Aeroplane"];
+  // List<String> items = ["Car", "Bus", "Train", "Aeroplane"];
   // Declare lists for dropdown options
 
   String currentItem = "";
@@ -78,53 +78,6 @@ class _PlanForMeState extends State<PlanForMe> {
                             type = value;
                           });
                         },
-                      ),
-                      SizedBox(height: 16.0),
-                      Container(
-                        height: 30,
-                        width: width * .30,
-                        decoration: BoxDecoration(
-                            border: buildBottomBorder(Colors.teal)),
-                        child: DropdownButton(
-                            // icon: const Icon(
-                            //   Icons.arrow_drop_down_sharp,
-                            //   color: AppColors.primary,
-                            //   size: 40,
-                            // ),
-                            // icon: Image.asset(
-                            //   "assets/img/drop.png",
-                            //   width: 20,
-                            // ),
-                            onChanged: (value) {
-                              setState(() {
-                                if (destination != value) {
-                                  // getSubSubject(value as String);
-                                }
-                                destination = value.toString();
-                              });
-                              setState(() {
-                                destination = value.toString();
-                              });
-                            },
-                            hint: Text(
-                              "Destination",
-                              style: TextStyle(
-                                // fontFamily: 'Montserrat',
-                                color: Colors.black,
-                                fontSize: 16,
-                              ),
-                            ),
-                            underline: const Text(""),
-                            //  style: AppTextStyle.secondary,
-                            isExpanded: true,
-                            value: destination,
-                            items: destinationList
-                                .map<DropdownMenuItem<String>>((e) {
-                              return DropdownMenuItem<String>(
-                                child: Text(e),
-                                value: e,
-                              );
-                            }).toList()),
                       ),
                       SizedBox(height: 16.0),
                       TextFormField(

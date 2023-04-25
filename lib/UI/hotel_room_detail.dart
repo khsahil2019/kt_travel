@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class HotelRoomDetails extends StatefulWidget {
   const HotelRoomDetails() : super();
@@ -266,6 +267,7 @@ class _HotelRoomDetailsState extends State<HotelRoomDetails> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        _openPopup(context);
                         // Navigator.push(
                         //   context,
                         //   MaterialPageRoute(
@@ -301,5 +303,37 @@ class _HotelRoomDetailsState extends State<HotelRoomDetails> {
         ],
       ),
     );
+  }
+
+  _openPopup(context) {
+    Alert(
+        context: context,
+        title: "LOGIN",
+        content: Column(
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                icon: Icon(Icons.account_circle),
+                labelText: 'Username',
+              ),
+            ),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                icon: Icon(Icons.lock),
+                labelText: 'Password',
+              ),
+            ),
+          ],
+        ),
+        buttons: [
+          DialogButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              "LOGIN",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          )
+        ]).show();
   }
 }

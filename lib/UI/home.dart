@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:drop_shadow_image/drop_shadow_image.dart';
 import 'package:kt_travel/UI/best_deal_detail.dart';
+import 'package:kt_travel/UI/destination_wedding_detail.dart';
 import 'package:kt_travel/UI/exotic_place.dart';
+import 'package:kt_travel/UI/exotic_place_detail.dart';
+import 'package:kt_travel/UI/hotel_room_detail.dart';
 import 'package:kt_travel/UI/planforme.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -155,11 +158,11 @@ class _HomePageState extends State<HomePage> {
                         GestureDetector(
                           onTap: () {
                             // _openPopup(context);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PlanForMe()),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => PlanForMe()),
+                            // );
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -356,23 +359,21 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BestDeals()),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => BestDeals()),
+                            // );
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.orange),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10, bottom: 10, right: 30, left: 30),
-                              child: Text(
-                                "Best Deals",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, bottom: 10, right: 30, left: 30),
+                            child: Text(
+                              "Best Deals",
+                              style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -413,23 +414,21 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => DestinationWedding()),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => DestinationWedding()),
+                            // );
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.orange),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10, bottom: 10, right: 30, left: 30),
-                              child: Text(
-                                "Destination Wedding",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, bottom: 10, right: 30, left: 30),
+                            child: Text(
+                              "Destination Wedding",
+                              style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -537,23 +536,21 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HotelRooms()),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => HotelRooms()),
+                            // );
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.orange),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10, bottom: 10, right: 30, left: 30),
-                              child: Text(
-                                "Hotels Rooms",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, bottom: 10, right: 30, left: 30),
+                            child: Text(
+                              "Hotels Rooms",
+                              style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -651,24 +648,24 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.teal),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, bottom: 10, right: 30, left: 30),
-                            child: Text(
-                              "Book Now",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Container(
+                    //       decoration: BoxDecoration(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           color: Colors.teal),
+                    //       child: Padding(
+                    //         padding: const EdgeInsets.only(
+                    //             top: 10, bottom: 10, right: 30, left: 30),
+                    //         child: Text(
+                    //           "Book Now",
+                    //           style: TextStyle(color: Colors.white),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -689,24 +686,34 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ExoticPlace()),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => ExoticPlace()),
+                            // );
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.orange),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10, bottom: 10, right: 30, left: 30),
-                              child: Text(
-                                "Exotic Places",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, bottom: 10, right: 30, left: 30),
+                            child: Text(
+                              "Exotic Places",
+                              style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
                             ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: width * .8,
+                          child: Text(
+                            "KT Travel is one of the most popular travel agency for who want to explore the world with adventure",
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ],
@@ -941,16 +948,25 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.orange)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 5, bottom: 5, right: 10, left: 10),
-                      child: Text(
-                        "Book",
-                        style: TextStyle(fontSize: 12),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BestDealsDetail()),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.orange)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 5, bottom: 5, right: 10, left: 10),
+                        child: Text(
+                          "Book",
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ),
                     ),
                   ),
@@ -1050,16 +1066,25 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.orange)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 5, bottom: 5, right: 10, left: 10),
-                      child: Text(
-                        "Book",
-                        style: TextStyle(fontSize: 12),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DestinationWeddingDetail()),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.orange)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 5, bottom: 5, right: 10, left: 10),
+                        child: Text(
+                          "Book",
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ),
                     ),
                   ),
@@ -1159,16 +1184,25 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.orange)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 5, bottom: 5, right: 10, left: 10),
-                      child: Text(
-                        "Book",
-                        style: TextStyle(fontSize: 12),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HotelRoomDetails()),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.orange)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 5, bottom: 5, right: 10, left: 10),
+                        child: Text(
+                          "Book",
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ),
                     ),
                   ),
@@ -1215,6 +1249,124 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget ExoticBox(double width, String img, String place, String location) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        width: width * .41,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(18)),
+        child: Column(
+          children: [
+            // SizedBox(
+            //   height: 20,
+            // ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: DecorationImage(
+                      image: AssetImage('assets/img/$img'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child:
+                      Image.asset("assets/img/$img", height: 130, width: 130)),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                    width: width * .35,
+                    child: Text(
+                      place,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
+                // Icon(
+                //   Icons.star,
+                //   color: Colors.teal,
+                //   size: 12,
+                // ),
+                // Text("4.5"),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 5,
+                ),
+                Icon(
+                  Icons.location_on,
+                  color: Colors.grey,
+                  size: 14,
+                ),
+                SizedBox(
+                    //width: width * .28,
+                    child: Text(
+                  location,
+                  style: TextStyle(fontSize: 10),
+                )),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  RichText(
+                    text: new TextSpan(
+                      text: '\$110/',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold),
+                      children: <TextSpan>[
+                        new TextSpan(
+                            text: 'person',
+                            style: new TextStyle(
+                                fontSize: 10, fontWeight: FontWeight.normal)),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ExoticPlaceDetail()),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.teal)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 5, bottom: 5, right: 10, left: 10),
+                        child: Text(
+                          "Book",
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget ExoticBox1(double width, String img, String place, String location) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(

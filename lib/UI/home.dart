@@ -390,7 +390,15 @@ class _HomePageState extends State<HomePage> {
                           DealBox(width, "uae.jpg", "UAE"),
                           DealBox(width, "italy.jpg", "Italy"),
                           DealBox(width, "italy.jpg", "Greece"),
-                          View(width)
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => BestDeals()),
+                                );
+                              },
+                              child: View(width))
                         ],
                       ),
                     ),
@@ -505,7 +513,16 @@ class _HomePageState extends State<HomePage> {
                           DestinationBox(width, "desti2.jpeg", "Havelock"),
                           DestinationBox(width, "desti3.jpeg", "Rishikesh"),
                           DestinationBox(width, "desti4.jpeg", "Goa"),
-                          View(width)
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DestinationWedding()),
+                                );
+                              },
+                              child: View(width))
                         ],
                       ),
                     ),
@@ -670,16 +687,25 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.orange),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, bottom: 10, right: 30, left: 30),
-                            child: Text(
-                              "Exotic Places",
-                              style: TextStyle(color: Colors.white),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ExoticPlace()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.orange),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10, bottom: 10, right: 30, left: 30),
+                              child: Text(
+                                "Exotic Places",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
                         ),
@@ -700,7 +726,15 @@ class _HomePageState extends State<HomePage> {
                               width, "exotic3.png", "Rann Of Kutch", "Gujarat"),
                           ExoticBox(
                               width, "exotic4.png", "Pangong Lake", "Ladakh"),
-                          View(width)
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ExoticPlace()),
+                                );
+                              },
+                              child: View(width))
                         ],
                       ),
                     ),

@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+
+import 'loading_state.dart';
 
 Widget detailBox() {
   return Padding(
@@ -316,4 +320,43 @@ Border buildBottomBorder(var color) {
       width: 0.5,
     ),
   );
+}
+
+Widget loadingIndicator(LoadingState loadingState) {
+  return loadingState.isLoading
+      ? BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+          child: Container(
+            alignment: AlignmentDirectional.center,
+            decoration: const BoxDecoration(
+              color: Colors.black26,
+            ),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Center(
+                    child: SizedBox(
+                      height: 30.0,
+                      width: 30.0,
+                      child: Image.asset('assets/img/loading.gif'),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 25.0),
+                    child: Center(
+                      child: Text(
+                        loadingState.msg,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        )
+      : const SizedBox();
 }

@@ -38,6 +38,7 @@ dependencies:
   carousel_slider: ^4.2.1
   drop_shadow_image: ^0.9.1
   rflutter_alert: ^1.0.3
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

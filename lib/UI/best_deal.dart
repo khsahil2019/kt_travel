@@ -35,7 +35,7 @@ class _BestDealsState extends State<BestDeals> {
                             width: width * .05,
                           ),
                           Text(
-                            "Exotic Place",
+                            "Best Deals",
                             style: TextStyle(
                                 fontSize: 28,
                                 color: Colors.teal,

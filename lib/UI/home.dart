@@ -369,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.only(
                                 top: 10, bottom: 10, right: 30, left: 30),
                             child: Text(
-                              "Best Deals",
+                              "Exciting Deals",
                               style: TextStyle(
                                   color: Colors.orange,
                                   fontSize: 24,
@@ -434,72 +434,72 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/img/second.png",
-                              height: 170,
-                              width: width * .45,
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "Welcome to K-T Travel",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.teal),
-                                )
-                              ],
-                            ),
-                            SizedBox(height: 10),
-                            Row(
-                              children: [
-                                RichText(
-                                  textAlign: TextAlign.center,
-                                  text: new TextSpan(
-                                    text: 'We Recommend\n ',
-                                    style: TextStyle(color: Colors.black),
-                                    children: <TextSpan>[
-                                      new TextSpan(
-                                          text: 'Beautiful ',
-                                          style: new TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.orange)),
-                                      new TextSpan(
-                                          text: 'Destination\n ',
-                                          style: new TextStyle(
-                                              // fontWeight: FontWeight.bold,
-                                              color: Colors.black)),
-                                      new TextSpan(
-                                          text: 'every month ',
-                                          style: new TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.teal)),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              "Travor is one of the most popular Travel agency\n for those who want to explore the world\n and try to make adventure as well\n as we can provide beautiful\n destination around the\n world and make\n you trip",
-                              style: TextStyle(fontSize: 10),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+                    // SizedBox(
+                    //   height: 30,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     Column(
+                    //       children: [
+                    //         Image.asset(
+                    //           "assets/img/second.png",
+                    //           height: 170,
+                    //           width: width * .45,
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     Column(
+                    //       children: [
+                    //         Row(
+                    //           children: [
+                    //             Text(
+                    //               "Welcome to K-T Travel",
+                    //               style: TextStyle(
+                    //                   fontSize: 14, color: Colors.teal),
+                    //             )
+                    //           ],
+                    //         ),
+                    //         SizedBox(height: 10),
+                    //         Row(
+                    //           children: [
+                    //             RichText(
+                    //               textAlign: TextAlign.center,
+                    //               text: new TextSpan(
+                    //                 text: 'We Recommend\n ',
+                    //                 style: TextStyle(color: Colors.black),
+                    //                 children: <TextSpan>[
+                    //                   new TextSpan(
+                    //                       text: 'Beautiful ',
+                    //                       style: new TextStyle(
+                    //                           fontWeight: FontWeight.bold,
+                    //                           color: Colors.orange)),
+                    //                   new TextSpan(
+                    //                       text: 'Destination\n ',
+                    //                       style: new TextStyle(
+                    //                           // fontWeight: FontWeight.bold,
+                    //                           color: Colors.black)),
+                    //                   new TextSpan(
+                    //                       text: 'every month ',
+                    //                       style: new TextStyle(
+                    //                           fontWeight: FontWeight.bold,
+                    //                           color: Colors.teal)),
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         SizedBox(
+                    //           height: 20,
+                    //         ),
+                    //         Text(
+                    //           "Travor is one of the most popular Travel agency\n for those who want to explore the world\n and try to make adventure as well\n as we can provide beautiful\n destination around the\n world and make\n you trip",
+                    //           style: TextStyle(fontSize: 10),
+                    //           textAlign: TextAlign.center,
+                    //         )
+                    //       ],
+                    //     )
+                    //   ],
+                    // ),
                     SizedBox(
                       height: 30,
                     ),
@@ -769,21 +769,21 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 20,
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                      child: Row(
-                        children: [
-                          Trip(width, "beach.jpg", "City Adventure trip",
-                              "Paris France"),
-                          Trip(width, "exotic1.png", "HoneyMoon Trip",
-                              "Thialand"),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    // SingleChildScrollView(
+                    //   scrollDirection: Axis.horizontal,
+                    //   padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                    //   child: Row(
+                    //     children: [
+                    //       Trip(width, "beach.jpg", "City Adventure trip",
+                    //           "Paris France"),
+                    //       Trip(width, "exotic1.png", "HoneyMoon Trip",
+                    //           "Thialand"),
+                    //     ],
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: 20,
+                    // ),
 
                     SizedBox(
                       height: 20,

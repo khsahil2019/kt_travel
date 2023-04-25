@@ -1,19 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:kt_travel/UI/best_deal_detail.dart';
 import 'dart:developer';
 
 import 'destination_wedding_detail.dart';
 import 'exotic_place_detail.dart';
 
-class BestDeals extends StatefulWidget {
-  const BestDeals() : super();
+class ExoticPlace extends StatefulWidget {
+  const ExoticPlace() : super();
 
   @override
-  State<BestDeals> createState() => _BestDealsState();
+  State<ExoticPlace> createState() => _ExoticPlaceState();
 }
 
-class _BestDealsState extends State<BestDeals> {
+class _ExoticPlaceState extends State<ExoticPlace> {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -43,14 +42,14 @@ class _BestDealsState extends State<BestDeals> {
                           ),
                         ],
                       ),
-                      BestDeals(width, "desti1.jpg"),
-                      BestDeals(width, "desti2.jpeg"),
-                      BestDeals(width, "desti3.jpeg"),
-                      BestDeals(width, "desti4.jpeg"),
-                      BestDeals(width, "desti1.jpg"),
-                      BestDeals(width, "desti2.jpeg"),
-                      BestDeals(width, "desti3.jpeg"),
-                      BestDeals(width, "desti4.jpeg"),
+                      ExoticPlace(width, "desti1.jpg"),
+                      ExoticPlace(width, "desti2.jpeg"),
+                      ExoticPlace(width, "desti3.jpeg"),
+                      ExoticPlace(width, "desti4.jpeg"),
+                      ExoticPlace(width, "desti1.jpg"),
+                      ExoticPlace(width, "desti2.jpeg"),
+                      ExoticPlace(width, "desti3.jpeg"),
+                      ExoticPlace(width, "desti4.jpeg"),
                     ],
                   ),
                 )
@@ -60,7 +59,7 @@ class _BestDealsState extends State<BestDeals> {
     ]));
   }
 
-  Widget BestDeals(double width, String img) {
+  Widget ExoticPlace(double width, String img) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -161,7 +160,7 @@ class _BestDealsState extends State<BestDeals> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BestDealsDetail()),
+                            builder: (context) => ExoticPlaceDetail()),
                       );
                     },
                     child: Container(

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'dart:developer';
 import 'package:drop_shadow_image/drop_shadow_image.dart';
+import 'package:kt_travel/UI/best_deal_detail.dart';
+import 'package:kt_travel/UI/exotic_place.dart';
 import 'package:kt_travel/UI/planforme.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -223,31 +225,49 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/img/10.png",
-                              height: 100,
-                              width: 100,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text("Best Deals", style: TextStyle())
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BestDeals()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "assets/img/10.png",
+                                height: 100,
+                                width: 100,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text("Best Deals", style: TextStyle())
+                            ],
+                          ),
                         ),
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/img/7.png",
-                              height: 100,
-                              width: 100,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text("Exotic Places", style: TextStyle())
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ExoticPlace()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "assets/img/7.png",
+                                height: 100,
+                                width: 100,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text("Exotic Places", style: TextStyle())
+                            ],
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -318,16 +338,16 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
-                    Row(
-                      children: [
-                        Text(
-                          "Most Attractive",
-                          style: TextStyle(color: Colors.teal),
-                        ),
-                        Image.asset("assets/img/location1.png")
-                      ],
-                    ),
+                    // SizedBox(height: 30),
+                    // Row(
+                    //   children: [
+                    //     Text(
+                    //       "Most Attractive",
+                    //       style: TextStyle(color: Colors.teal),
+                    //     ),
+                    //     Image.asset("assets/img/location1.png")
+                    //   ],
+                    // ),
                     SizedBox(
                       height: 30,
                     ),

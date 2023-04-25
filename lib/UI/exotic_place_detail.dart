@@ -91,6 +91,15 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
                     Container(
                       height: 100,
                       decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
                           borderRadius: BorderRadius.circular(12),
                           color: Color.fromARGB(255, 161, 238, 230)
                           // color: Color.fromARGB(255, 247, 178, 75)

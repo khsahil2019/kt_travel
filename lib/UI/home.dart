@@ -681,6 +681,27 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 20,
                     ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                      child: Row(
+                        children: [
+                          Trip(width, "beach.jpg", "City Adventure trip",
+                              "Paris France"),
+                          Trip(width, "exotic1.png", "HoneyMoon Trip",
+                              "Thialand"),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Divider(
+                      thickness: 1,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -745,6 +766,25 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                      child: Row(
+                        children: [
+                          Trip(width, "beach.jpg", "City Adventure trip",
+                              "Paris France"),
+                          Trip(width, "exotic1.png", "HoneyMoon Trip",
+                              "Thialand"),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+
                     SizedBox(
                       height: 20,
                     ),
@@ -866,8 +906,14 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(10.0),
       child: Container(
         width: width * .41,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(18)),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 5,
+            offset: Offset(0, 0), // changes position of shadow
+          ),
+        ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
           children: [
             // SizedBox(
@@ -984,8 +1030,14 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(10.0),
       child: Container(
         width: width * .41,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(18)),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 5,
+            offset: Offset(0, 0), // changes position of shadow
+          ),
+        ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
           children: [
             // SizedBox(
@@ -1102,8 +1154,14 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(10.0),
       child: Container(
         width: width * .41,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(18)),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 5,
+            offset: Offset(0, 0), // changes position of shadow
+          ),
+        ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
           children: [
             // SizedBox(
@@ -1253,8 +1311,14 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(10.0),
       child: Container(
         width: width * .41,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(18)),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 5,
+            offset: Offset(0, 0), // changes position of shadow
+          ),
+        ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
           children: [
             // SizedBox(
@@ -1366,13 +1430,19 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget ExoticBox1(double width, String img, String place, String location) {
+  Widget Trip(double width, String img, String place, String location) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
-        width: width * .41,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(18)),
+        width: width * .8,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 5,
+            offset: Offset(0, 0), // changes position of shadow
+          ),
+        ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
           children: [
             // SizedBox(
@@ -1388,53 +1458,72 @@ class _HomePageState extends State<HomePage> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  child:
-                      Image.asset("assets/img/$img", height: 130, width: 130)),
+                  child: Image.asset("assets/img/$img",
+                      height: 130, width: width * .7)),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                    width: width * .28,
-                    child: Text(
-                      place,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )),
-                Icon(
-                  Icons.star,
-                  color: Colors.teal,
-                  size: 12,
-                ),
-                Text("4.5"),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              //mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 5,
-                ),
-                Icon(
-                  Icons.location_on,
-                  color: Colors.grey,
-                  size: 14,
-                ),
-                SizedBox(
-                    //width: width * .28,
-                    child: Text(
-                  location,
-                  style: TextStyle(fontSize: 10),
-                )),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Row(children: [
+                Text(
+                  "4 days 3 night",
+                  style: TextStyle(color: Colors.teal),
+                )
+              ]),
             ),
             SizedBox(
               height: 5,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 15),
+              child: Row(
+                //mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                      width: width * .5,
+                      child: Text(
+                        place,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      )),
+                  // Icon(
+                  //   Icons.star,
+                  //   color: Colors.teal,
+                  //   size: 12,
+                  // ),
+                  // Text("4.5"),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Row(
+                //mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 0,
+                  ),
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.grey,
+                    size: 14,
+                  ),
+                  SizedBox(
+                      //width: width * .28,
+                      child: Text(
+                    location,
+                    style: TextStyle(fontSize: 10),
+                  )),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -1453,16 +1542,19 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.orange)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 5, bottom: 5, right: 10, left: 10),
-                      child: Text(
-                        "Book",
-                        style: TextStyle(fontSize: 12),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.orange)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 5, bottom: 5, right: 10, left: 10),
+                        child: Text(
+                          "Book",
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ),
                     ),
                   ),

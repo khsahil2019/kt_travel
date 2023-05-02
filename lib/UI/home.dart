@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:developer';
 import 'package:drop_shadow_image/drop_shadow_image.dart';
+import 'package:kt_travel/Register/signup.dart';
 import 'package:kt_travel/UI/best_deal_detail.dart';
 import 'package:kt_travel/UI/destination_wedding_detail.dart';
 import 'package:kt_travel/UI/exotic_place.dart';
@@ -96,14 +97,21 @@ class _HomePageState extends State<HomePage> {
                 // );
               },
             ),
-            IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.black,
+            GestureDetector(
+              onTap: () {},
+              child: IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupPage()),
+                  );
+                  // Do something when the more_vert icon is pressed
+                },
               ),
-              onPressed: () {
-                // Do something when the more_vert icon is pressed
-              },
             ),
           ],
         ),

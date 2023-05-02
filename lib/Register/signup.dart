@@ -1,14 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
+Future<void> signUp(
+    String username, String email, String mobile, String password) async {
+  const url =
+      'http://localhost/Tourism/Tourism%20Management%20System%20using%20PHP%20&%20MySQL%20-TMS/tms/api/signup.php';
+
+  final response = await http.post(
+    Uri.parse(url),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'username': username,
+      'email': email,
+      'mobile': mobile,
+      'password': password,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    final data = jsonDecode(response.body);
+    print(data);
+  } else {
+    print('Error: ${response.statusCode}');
+  }
+}
+
 class _SignupPageState extends State<SignupPage> {
   TextEditingController _firstNameController = TextEditingController();
-  TextEditingController _lastNameController = TextEditingController();
+  // TextEditingController _lastNameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
+  TextEditingController _mobileController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
   @override
@@ -54,13 +83,13 @@ class _SignupPageState extends State<SignupPage> {
                 labelText: 'First name',
               ),
             ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _lastNameController,
-              decoration: InputDecoration(
-                labelText: 'Last name',
-              ),
-            ),
+            // SizedBox(height: 16),
+            // TextField(
+            //   controller: _firstNameController,
+            //   decoration: InputDecoration(
+            //     labelText: 'Last name',
+            //   ),
+            // ),
             SizedBox(height: 16),
             TextField(
               controller: _emailController,
@@ -71,15 +100,25 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(height: 16),
             TextField(
+              controller: _mobileController,
+              // obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Mobile Number',
+              ),
+            ),
+            SizedBox(height: 16),
+            TextField(
               controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
               ),
             ),
+
             SizedBox(height: 46),
             ElevatedButton(
               onPressed: () {
+                _submitForm();
                 // Navigator.push(
                 //   context,
                 //   MaterialPageRoute(builder: (context) => DetailPage()),
@@ -120,5 +159,14 @@ class _SignupPageState extends State<SignupPage> {
         ),
       ),
     );
+  }
+
+  void _submitForm() {
+    final username = _firstNameController.text;
+    final email = _emailController.text;
+    final mobile = _mobileController.text;
+    final password = _passwordController.text;
+
+    signUp(username, email, mobile, password);
   }
 }

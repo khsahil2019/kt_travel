@@ -13,6 +13,7 @@ import 'package:kt_travel/UI/hotel_room_detail.dart';
 import 'package:kt_travel/UI/planforme.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+import '../controller/authController.dart';
 import '../widget.dart';
 import 'best_deal.dart';
 import 'destination_wedding.dart';
@@ -84,6 +85,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget build(BuildContext context) {
+    log("asdfaf" + authController.user.toString());
     // ignore: unused_local_variable
     double width = MediaQuery.of(context).size.width - 40;
     return Scaffold(

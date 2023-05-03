@@ -1,10 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'package:webview_flutter/webview_flutter.dart';
+// import 'package:webview_flutter/webview_flutter.dart';
 
 import 'UI/splash.dart';
+import 'controller/allbindings.dart';
+import 'helper/theme.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,7 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      theme: ThemeClass.lightTheme,
+      initialBinding: AuthBinding(),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'K T Travel APP'),
     );

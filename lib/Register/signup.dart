@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:kt_travel/Register/login.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -58,10 +61,15 @@ class _SignupPageState extends State<SignupPage> {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      Get.back();
                     },
                     child: Icon(Icons.arrow_back_sharp)),
-                Text("Login")
+                GestureDetector(
+                    onTap: () {
+                      Get.to(LoginScreen());
+                      // Get.offAll(LogInScreen());
+                    },
+                    child: Text("Login"))
               ]),
               SizedBox(
                 height: 30,

@@ -17,6 +17,8 @@ import '../widget.dart';
 import 'best_deal.dart';
 import 'destination_wedding.dart';
 import 'hotel_rooms.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage() : super();
@@ -26,7 +28,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late Map mapResponse;
+  // late Map dataResponse;
+  late List listResponse;
+  Future apicall() async {
+    http.Response response;
+    response = await http.get(Uri.parse("https://reqres.in/api/users?page=2"));
+    if (response.statusCode == 200) {
+      setState(() {
+        // stringResponse = response.body;
+        mapResponse = jsonDecode(response.body);
+        listResponse = mapResponse['data'];
+      });
+    }
+  }
+
   @override
+  void initState() {
+    // TODO: implement initState
+    listResponse = ["null"];
+    apicall();
+    super.initState();
+  }
+
   _openPopup(context) {
     Alert(
         context: context,
@@ -567,27 +591,177 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 30,
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                      child: Row(
-                        children: [
-                          RoomBox(width, "room1.jpg", "Manali", "Mall Road"),
-                          RoomBox(width, "room2.jpg", "Nanital", "Anand Road"),
-                          RoomBox(width, "room3.jpg", "Delhi", "Kashmiri Gate"),
-                          RoomBox(width, "room4.jpg", "Auli", "Sector 49"),
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HotelRooms()),
-                                );
-                              },
-                              child: View(width))
-                        ],
-                      ),
-                    ),
+                    // Expanded(
+                    //   child: ListView.builder(
+                    //     scrollDirection: Axis.horizontal,
+                    //     shrinkWrap: true,
+                    //     physics: NeverScrollableScrollPhysics(),
+                    //     itemBuilder: (context, index) {
+                    //       return Padding(
+                    //         padding: const EdgeInsets.all(10.0),
+                    //         child: Container(
+                    //           width: width * .41,
+                    //           decoration: BoxDecoration(
+                    //               boxShadow: [
+                    //                 BoxShadow(
+                    //                   color: Colors.grey.withOpacity(0.2),
+                    //                   spreadRadius: 5,
+                    //                   blurRadius: 5,
+                    //                   offset: Offset(
+                    //                       0, 0), // changes position of shadow
+                    //                 ),
+                    //               ],
+                    //               color: Colors.white,
+                    //               borderRadius: BorderRadius.circular(18)),
+                    //           child: Column(
+                    //             children: [
+                    //               // SizedBox(
+                    //               //   height: 20,
+                    //               // ),
+                    //               Padding(
+                    //                 padding: const EdgeInsets.all(8.0),
+                    //                 child: Container(
+                    //                     decoration: BoxDecoration(
+                    //                       borderRadius:
+                    //                           BorderRadius.circular(10.0),
+                    //                       image: DecorationImage(
+                    //                         image: NetworkImage(
+                    //                             listResponse[index]['avatar']),
+                    //                         fit: BoxFit.cover,
+                    //                       ),
+                    //                     ),
+                    //                     child: Image.network(
+                    //                         listResponse[index]['avatar'])
+                    //                     //  Network.Image("assets/img/$img", height: 130, width: 130)
+                    //                     ),
+                    //               ),
+                    //               Row(
+                    //                 mainAxisAlignment: MainAxisAlignment.center,
+                    //                 children: [
+                    //                   SizedBox(
+                    //                       width: width * .28,
+                    //                       child: Text(
+                    //                         listResponse[index]['first_name'],
+                    //                         style: TextStyle(
+                    //                             fontWeight: FontWeight.bold),
+                    //                       )),
+                    //                   Icon(
+                    //                     Icons.star,
+                    //                     color: Colors.teal,
+                    //                     size: 12,
+                    //                   ),
+                    //                   Text("4.5"),
+                    //                 ],
+                    //               ),
+                    //               SizedBox(
+                    //                 height: 10,
+                    //               ),
+                    //               Row(
+                    //                 //mainAxisAlignment: MainAxisAlignment.center,
+                    //                 children: [
+                    //                   SizedBox(
+                    //                     width: 5,
+                    //                   ),
+                    //                   Icon(
+                    //                     Icons.location_on,
+                    //                     color: Colors.grey,
+                    //                     size: 14,
+                    //                   ),
+                    //                   SizedBox(
+                    //                       //width: width * .28,
+                    //                       child: Text(
+                    //                     listResponse[index]['last_name'],
+                    //                     style: TextStyle(fontSize: 10),
+                    //                   )),
+                    //                 ],
+                    //               ),
+                    //               SizedBox(
+                    //                 height: 5,
+                    //               ),
+                    //               Padding(
+                    //                 padding: const EdgeInsets.all(8.0),
+                    //                 child: Row(
+                    //                   mainAxisAlignment:
+                    //                       MainAxisAlignment.spaceBetween,
+                    //                   children: [
+                    //                     RichText(
+                    //                       text: new TextSpan(
+                    //                         text: '\$110/',
+                    //                         style: TextStyle(
+                    //                             color: Colors.black,
+                    //                             fontSize: 12,
+                    //                             fontWeight: FontWeight.bold),
+                    //                         children: <TextSpan>[
+                    //                           new TextSpan(
+                    //                               text: 'person',
+                    //                               style: new TextStyle(
+                    //                                   fontSize: 10,
+                    //                                   fontWeight:
+                    //                                       FontWeight.normal)),
+                    //                         ],
+                    //                       ),
+                    //                     ),
+                    //                     GestureDetector(
+                    //                       onTap: () {
+                    //                         Navigator.push(
+                    //                           context,
+                    //                           MaterialPageRoute(
+                    //                               builder: (context) =>
+                    //                                   HotelRoomDetails()),
+                    //                         );
+                    //                       },
+                    //                       child: Container(
+                    //                         decoration: BoxDecoration(
+                    //                             borderRadius:
+                    //                                 BorderRadius.circular(20),
+                    //                             border: Border.all(
+                    //                                 color: Colors.orange)),
+                    //                         child: Padding(
+                    //                           padding: const EdgeInsets.only(
+                    //                               top: 5,
+                    //                               bottom: 5,
+                    //                               right: 10,
+                    //                               left: 10),
+                    //                           child: Text(
+                    //                             "Book",
+                    //                             style: TextStyle(fontSize: 12),
+                    //                           ),
+                    //                         ),
+                    //                       ),
+                    //                     ),
+                    //                   ],
+                    //                 ),
+                    //               )
+                    //             ],
+                    //           ),
+                    //         ),
+                    //       );
+                    //     },
+                    //     itemCount:
+                    //         listResponse == null ? 0 : listResponse.length,
+                    //   ),
+                    // ),
+                    // SingleChildScrollView(
+                    //   scrollDirection: Axis.horizontal,
+                    //   padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                    //   child: Row(
+                    //     children: [
+                    //       RoomBox(width, "room1.jpg", "Manali", "Mall Road"),
+                    //       RoomBox(width, "room2.jpg", "Nanital", "Anand Road"),
+                    //       RoomBox(width, "room3.jpg", "Delhi", "Kashmiri Gate"),
+                    //       RoomBox(width, "room4.jpg", "Auli", "Sector 49"),
+                    //       GestureDetector(
+                    //           onTap: () {
+                    //             Navigator.push(
+                    //               context,
+                    //               MaterialPageRoute(
+                    //                   builder: (context) => HotelRooms()),
+                    //             );
+                    //           },
+                    //           child: View(width))
+                    //     ],
+                    //   ),
+                    // ),
                     SizedBox(
                       height: 20,
                     ),

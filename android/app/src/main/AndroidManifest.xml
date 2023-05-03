@@ -1,8 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.kt_travel">
    <application
-        tools:overrideLibrary="io.flutter.plugins.webviewflutter"
         android:label="kt_travel"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
@@ -34,4 +32,3 @@
             android:value="2" />
     </application>
 </manifest>
-<uses-permission android:name="android.permission.INTERNET"/> 

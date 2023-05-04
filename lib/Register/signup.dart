@@ -4,12 +4,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:kt_travel/Register/login.dart';
+import 'package:kt_travel/controller/authController.dart';
+import 'package:kt_travel/services/apiservice.dart';
 
 class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
+//Map userData = {"name": userData, "email": "", "mobile": "", "pass": ""};
 Future<void> signUp(
     String username, String email, String mobile, String password) async {
   const url =
@@ -46,45 +49,43 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Sign up'),
-      // ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
-                height: 30,
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Icon(Icons.arrow_back_sharp)),
-                GestureDetector(
-                    onTap: () {
-                      Get.to(LoginScreen());
-                      // Get.offAll(LogInScreen());
-                    },
-                    child: Text("Login"))
-              ]),
-              SizedBox(
-                height: 30,
-              ),
+              // SizedBox(
+              //   height: 30,
+              // ),
+              // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              //   GestureDetector(
+              //       onTap: () {
+              //         Get.back();
+              //       },
+              //       child: Icon(Icons.arrow_back_sharp)),
+              //   GestureDetector(
+              //       onTap: () {
+              //         Get.to(LoginScreen());
+              //         // Get.offAll(LogInScreen());
+              //       },
+              //       child: Text("Login"))
+              // ]),
+              // SizedBox(
+              //   height: 30,
+              // ),
               Text(
                 "Sign up",
                 style: TextStyle(
-                  fontSize: 40.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,
                   // fontFamily: "Sail"
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 60,
               ),
               TextField(
                 controller: _firstNameController,
@@ -128,10 +129,16 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
 
-              SizedBox(height: 46),
+              SizedBox(height: 56),
               ElevatedButton(
                 onPressed: () {
-                  _submitForm();
+                  // _submitForm();
+                  ApiService().Signup(
+                      _firstNameController.text,
+                      _emailController.text,
+                      _mobileController.text,
+                      _passwordController.text);
+                  // .whenComplete(() => Get.offAll(() => LoginScreen()));
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(builder: (context) => DetailPage()),
@@ -154,6 +161,7 @@ class _SignupPageState extends State<SignupPage> {
                   primary: Colors.grey, //background color of button
                 ),
                 onPressed: () {
+                  Get.to(LoginScreen());
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(builder: (context) => CategoryScreen()),
@@ -162,9 +170,9 @@ class _SignupPageState extends State<SignupPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.mail),
-                    SizedBox(width: 8),
-                    Text('Continue with Gmail'),
+                    // Icon(Icons.mail),
+                    // SizedBox(width: 8),
+                    Text('Already have an account'),
                   ],
                 ),
               ),

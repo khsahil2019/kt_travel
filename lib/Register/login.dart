@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kt_travel/Register/signup.dart';
+import 'package:kt_travel/helper/theme.dart';
 
 import '../services/apiservice.dart';
 import 'forgetpass.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get_storage/get_storage.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -10,11 +15,22 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _rememberMe = false;
+
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  Future<void> saveCredentials(String email, String password) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('email', email);
+    await prefs.setString('password', password);
+    GetStorage().write('remember_me', true);
+  }
 
   @override
   Widget build(BuildContext context) {
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String? email = prefs.getString('email');
+    // String? password = prefs.getString('password');
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -28,9 +44,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 'Login',
                 style: TextStyle(
-                    fontSize: 40.0,
+                    fontSize: 30.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: AppColors.primary,
                     fontFamily: "Sail"),
               ),
               SizedBox(height: 40.0),
@@ -97,24 +113,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 20.0),
-              Center(child: Text('or')),
+              Center(child: Text('OR   D\'not Have Account')),
               SizedBox(height: 20.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.grey, //background color of button
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
-                  );
+                  Get.to(SignupPage());
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.mail),
-                    SizedBox(width: 8),
-                    Text('Continue with Gmail'),
+                    // Icon(Icons.mail),
+                    /// SizedBox(width: 8),
+                    Text('Sign up'),
                   ],
                 ),
               ),

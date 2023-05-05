@@ -172,7 +172,7 @@ class ApiService {
   //   }
   // }
 
-  Future<List> exoticLocation() async {
+  Future<List<dynamic>> exoticLocation() async {
     //showLoading();
     var client = http.Client();
     Uri uri = Uri.https(baseUrl, 'api/exoticlocations.php');

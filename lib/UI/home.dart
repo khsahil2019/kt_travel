@@ -53,43 +53,43 @@ class _HomePageState extends State<HomePage> {
   //   super.initState();
   // }
 
-  _openPopup(context) {
-    Alert(
-        context: context,
-        title: "LOGIN",
-        content: Column(
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                icon: Icon(Icons.account_circle),
-                labelText: 'Username',
-              ),
-            ),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                icon: Icon(Icons.lock),
-                labelText: 'Password',
-              ),
-            ),
-          ],
-        ),
-        buttons: [
-          DialogButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(
-              "LOGIN",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-          )
-        ]).show();
-  }
+  // _openPopup(context) {
+  //   Alert(
+  //       context: context,
+  //       title: "LOGIN",
+  //       content: Column(
+  //         children: <Widget>[
+  //           TextField(
+  //             decoration: InputDecoration(
+  //               icon: Icon(Icons.account_circle),
+  //               labelText: 'Username',
+  //             ),
+  //           ),
+  //           TextField(
+  //             obscureText: true,
+  //             decoration: InputDecoration(
+  //               icon: Icon(Icons.lock),
+  //               labelText: 'Password',
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //       buttons: [
+  //         DialogButton(
+  //           onPressed: () => Navigator.pop(context),
+  //           child: Text(
+  //             "LOGIN",
+  //             style: TextStyle(color: Colors.white, fontSize: 20),
+  //           ),
+  //         )
+  //       ]).show();
+  // }
 
   Widget build(BuildContext context) {
     // log(authController.)
     // log("asdfaf" + authController.user.toString());
-    log("asdfaf" + authController.exoticplaceList.toString());
-    log("asdfaf" + authController.indexPageList.toString());
+    log("Exotic place" + authController.exoticplaceList.toString());
+    log("index" + authController.indexPageList.toString());
     // ignore: unused_local_variable
     double width = MediaQuery.of(context).size.width - 40;
     return Scaffold(
@@ -110,13 +110,13 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          title: Text(
+          title: const Text(
             'TRAVEL APP',
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
           actions: [
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.search,
                 color: Colors.black,
               ),
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
             GestureDetector(
               onTap: () {},
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.settings,
                   color: Colors.black,
                 ),
@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        backgroundColor: Color.fromARGB(255, 255, 254, 254),
+        backgroundColor: const Color.fromARGB(255, 255, 254, 254),
         body: Stack(children: [
           Container(
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                             //     ],
                             //   ),
                             // ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
 
@@ -188,7 +188,7 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 authController.indexPageList!["p3"].toString(),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 12),
+                                style: const TextStyle(fontSize: 12),
                               ),
                             )
                           ],
@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     // Text(authController.exoticplaceList[0].toString()),
@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
                                 authController.indexPageList!["p4"].toString(),
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
@@ -233,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                         //  Text("Get Price")
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     SizedBox(
@@ -241,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           authController.indexPageList!['p5'].toString(),
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.teal),
+                          style: const TextStyle(color: Colors.teal),
                         )),
                     // RichText(
                     //   textAlign: TextAlign.center,
@@ -282,7 +282,7 @@ class _HomePageState extends State<HomePage> {
                     //     ],
                     //   ),
                     // ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
@@ -293,7 +293,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => BestDeals()),
+                                  builder: (context) => const BestDeals()),
                             );
                           },
                           child: Column(
@@ -303,13 +303,13 @@ class _HomePageState extends State<HomePage> {
                                 height: 100,
                                 width: 100,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Text(
                                   authController.indexPageList!["iconh1"]
                                       .toString(),
-                                  style: TextStyle())
+                                  style: const TextStyle())
                             ],
                           ),
                         ),
@@ -318,7 +318,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ExoticPlace()),
+                                  builder: (context) => const ExoticPlace()),
                             );
                           },
                           child: Column(
@@ -328,13 +328,13 @@ class _HomePageState extends State<HomePage> {
                                 height: 100,
                                 width: 100,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Text(
                                   authController.indexPageList!["iconh2"]
                                       .toString(),
-                                  style: TextStyle())
+                                  style: const TextStyle())
                             ],
                           ),
                         ),
@@ -343,7 +343,8 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DestinationWedding()),
+                                  builder: (context) =>
+                                      const DestinationWedding()),
                             );
                           },
                           child: Column(
@@ -353,20 +354,20 @@ class _HomePageState extends State<HomePage> {
                                 height: 95,
                                 width: 100,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15,
                               ),
                               Text(
                                   authController.indexPageList!["iconh3"]
                                       .toString(),
                                   textAlign: TextAlign.center,
-                                  style: TextStyle())
+                                  style: const TextStyle())
                             ],
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -377,7 +378,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HotelRooms()),
+                                  builder: (context) => const HotelRooms()),
                             );
                           },
                           child: Column(
@@ -387,13 +388,13 @@ class _HomePageState extends State<HomePage> {
                                 height: 100,
                                 width: 100,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Text(
                                   authController.indexPageList!["iconh4"]
                                       .toString(),
-                                  style: TextStyle())
+                                  style: const TextStyle())
                             ],
                           ),
                         ),
@@ -404,27 +405,27 @@ class _HomePageState extends State<HomePage> {
                               height: 100,
                               width: 100,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
                                 authController.indexPageList!["iconh5"]
                                     .toString(),
-                                style: TextStyle())
+                                style: const TextStyle())
                           ],
                         ),
                       ],
                     ),
 
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Text(
                       authController.indexPageList!["iconp1"].toString(),
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.teal),
+                      style: const TextStyle(color: Colors.teal),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
 
@@ -440,13 +441,13 @@ class _HomePageState extends State<HomePage> {
                                 authController.indexPageList!["iconp2"]
                                     .toString(),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 24,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             SizedBox(
@@ -455,7 +456,7 @@ class _HomePageState extends State<HomePage> {
                                 authController.indexPageList!["iconp3"]
                                     .toString(),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     //fontSize: 28,
                                     color: Colors.grey,
                                     fontWeight: FontWeight.bold),
@@ -479,7 +480,7 @@ class _HomePageState extends State<HomePage> {
                               textAlign: TextAlign.center,
                               text: new TextSpan(
                                 text: 'Grab ',
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black, fontSize: 18),
                                 children: <TextSpan>[
                                   new TextSpan(
@@ -491,7 +492,7 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             )
                           ],
@@ -500,7 +501,7 @@ class _HomePageState extends State<HomePage> {
                             height: 100, width: 100)
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
 
@@ -518,7 +519,7 @@ class _HomePageState extends State<HomePage> {
                                         color: Colors.grey.withOpacity(0.2),
                                         spreadRadius: 5,
                                         blurRadius: 5,
-                                        offset: Offset(
+                                        offset: const Offset(
                                             0, 0), // changes position of shadow
                                       ),
                                     ],
@@ -535,7 +536,7 @@ class _HomePageState extends State<HomePage> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
-                                            image: DecorationImage(
+                                            image: const DecorationImage(
                                               image: AssetImage(
                                                   'assets/img/beach.jpg'),
                                               fit: BoxFit.cover,
@@ -557,7 +558,7 @@ class _HomePageState extends State<HomePage> {
                                               width: width * .52,
                                               child: Text(
                                                 x["PackageType"],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: Colors.teal),
                                               ),
                                             ),
@@ -573,10 +574,9 @@ class _HomePageState extends State<HomePage> {
                                                     border: Border.all(
                                                         color: Colors.black,
                                                         width: 0.1)),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(4.0),
-                                                  child: Text("20% off",
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(4.0),
+                                                  child: const Text("20% off",
                                                       style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -598,7 +598,7 @@ class _HomePageState extends State<HomePage> {
                                               width: width * .5,
                                               child: Text(
                                                 x['PackageName'],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 16),
                                               )),
@@ -611,7 +611,7 @@ class _HomePageState extends State<HomePage> {
                                         ],
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     Padding(
@@ -622,7 +622,7 @@ class _HomePageState extends State<HomePage> {
                                           // SizedBox(
                                           //   width: 0,
                                           // ),
-                                          Icon(
+                                          const Icon(
                                             Icons.location_on,
                                             color: Colors.grey,
                                             size: 14,
@@ -631,12 +631,13 @@ class _HomePageState extends State<HomePage> {
                                               //width: width * .28,
                                               child: Text(
                                             x['PackageLocation'],
-                                            style: TextStyle(fontSize: 10),
+                                            style:
+                                                const TextStyle(fontSize: 10),
                                           )),
                                         ],
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     Padding(
@@ -650,7 +651,7 @@ class _HomePageState extends State<HomePage> {
                                               text: "Rs. " +
                                                   x['PackagePrice'] +
                                                   "/",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold),
@@ -672,13 +673,13 @@ class _HomePageState extends State<HomePage> {
                                                       BorderRadius.circular(20),
                                                   border: Border.all(
                                                       color: Colors.orange)),
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
+                                              child: const Padding(
+                                                padding: EdgeInsets.only(
                                                     top: 5,
                                                     bottom: 5,
                                                     right: 10,
                                                     left: 10),
-                                                child: Text(
+                                                child: const Text(
                                                   "Book",
                                                   style:
                                                       TextStyle(fontSize: 12),
@@ -707,14 +708,14 @@ class _HomePageState extends State<HomePage> {
                     //     ],
                     //   ),
                     // ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     button("See All"),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
@@ -734,7 +735,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               authController.indexPageList!["iconh2"]
                                   .toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.orange,
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold),
@@ -755,7 +756,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
 
@@ -774,7 +775,7 @@ class _HomePageState extends State<HomePage> {
                                         color: Colors.grey.withOpacity(0.2),
                                         spreadRadius: 5,
                                         blurRadius: 5,
-                                        offset: Offset(
+                                        offset: const Offset(
                                             0, 0), // changes position of shadow
                                       ),
                                     ],
@@ -788,7 +789,7 @@ class _HomePageState extends State<HomePage> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
-                                            image: DecorationImage(
+                                            image: const DecorationImage(
                                               image: AssetImage('assets/img/'),
                                               fit: BoxFit.cover,
                                             ),
@@ -804,7 +805,7 @@ class _HomePageState extends State<HomePage> {
                                             width: width * .35,
                                             child: Text(
                                               x['PackageName'],
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             )),
                                         // Icon(
@@ -815,16 +816,16 @@ class _HomePageState extends State<HomePage> {
                                         // Text("4.5"),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Row(
                                       //mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
-                                        Icon(
+                                        const Icon(
                                           Icons.location_on,
                                           color: Colors.grey,
                                           size: 14,
@@ -833,11 +834,11 @@ class _HomePageState extends State<HomePage> {
                                             //width: width * .28,
                                             child: Text(
                                           x['PackageName'],
-                                          style: TextStyle(fontSize: 10),
+                                          style: const TextStyle(fontSize: 10),
                                         )),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     Padding(
@@ -849,14 +850,14 @@ class _HomePageState extends State<HomePage> {
                                           RichText(
                                             text: new TextSpan(
                                               text: '\$110/',
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold),
                                               children: <TextSpan>[
                                                 new TextSpan(
                                                     text: 'person',
-                                                    style: new TextStyle(
+                                                    style: const TextStyle(
                                                         fontSize: 10,
                                                         fontWeight:
                                                             FontWeight.normal)),
@@ -869,7 +870,7 @@ class _HomePageState extends State<HomePage> {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        ExoticPlaceDetail()),
+                                                        const ExoticPlaceDetail()),
                                               );
                                             },
                                             child: Container(
@@ -878,13 +879,13 @@ class _HomePageState extends State<HomePage> {
                                                       BorderRadius.circular(20),
                                                   border: Border.all(
                                                       color: Colors.teal)),
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
+                                              child: const Padding(
+                                                padding: EdgeInsets.only(
                                                     top: 5,
                                                     bottom: 5,
                                                     right: 10,
                                                     left: 10),
-                                                child: Text(
+                                                child: const Text(
                                                   "Book",
                                                   style:
                                                       TextStyle(fontSize: 12),
@@ -902,17 +903,17 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     GestureDetector(
                         onTap: () {
-                          Get.offAll(ExoticPlace());
+                          Get.to(const ExoticPlace());
                         },
                         child: button("See All")),
                     /*Exotic ends*/
                     /*wedding destination*/
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
@@ -932,7 +933,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               authController.indexPageList!["iconh3"]
                                   .toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.orange,
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold),
@@ -953,12 +954,12 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         children: [
                           DestinationBox(width, "desti1.jpg", "Kerala"),
@@ -978,7 +979,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     button("See All"),
@@ -987,7 +988,7 @@ class _HomePageState extends State<HomePage> {
                     // ),
                     /*End wedding destination*/
                     /*Hotel rooms */
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
@@ -1007,7 +1008,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               authController.indexPageList!["iconh4"]
                                   .toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.orange,
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold),
@@ -1028,12 +1029,12 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         children: [
                           DestinationBox(width, "desti1.jpg", "Kerala"),
@@ -1053,7 +1054,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     button("See All"),
@@ -1062,7 +1063,7 @@ class _HomePageState extends State<HomePage> {
                     // ),
                     /*End Hotel rooms */
                     /* Flights  */
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
@@ -1082,7 +1083,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               authController.indexPageList!["iconh5"]
                                   .toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.orange,
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold),
@@ -1096,40 +1097,40 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         SizedBox(
                           width: width * .8,
-                          child: Text(
+                          child: const Text(
                             "KT is one of the most popular Travel agency for who want to explore the wold with adventure",
                             textAlign: TextAlign.center,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Image.asset("assets/img/plane.png"),
                     // Divider(
                     //   thickness: 1,
                     // ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     button("See All"),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: [
                         Image.asset("assets/img/fifth.png",
                             height: 150, width: 150),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                         Column(children: [
                           Row(
                             children: [
-                              Text(
+                              const Text(
                                 "Our Testimonials",
-                                style: TextStyle(color: Colors.teal),
+                                style: const TextStyle(color: Colors.teal),
                               ),
                               Image.asset(
                                 "assets/img/badge.png",
@@ -1138,12 +1139,12 @@ class _HomePageState extends State<HomePage> {
                               )
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           RichText(
                             textAlign: TextAlign.center,
                             text: new TextSpan(
                               text: 'Happy ',
-                              style: TextStyle(color: Colors.black),
+                              style: const TextStyle(color: Colors.black),
                               children: <TextSpan>[
                                 new TextSpan(
                                     text: 'Travelers\n',
@@ -1158,37 +1159,37 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 10),
-                          Text(
+                          const SizedBox(height: 10),
+                          const Text(
                             "Travor is one of the most popular\n Travel agency for those who\n want to explore the world\n and try to make adventure\n as well as we can\n provide",
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 11),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 "John smith",
                                 style:
                                     TextStyle(color: Colors.teal, fontSize: 13),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 90,
                               ),
                             ],
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 "[Ceo Founder]",
                                 style: TextStyle(fontSize: 10),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 90,
                               ),
                             ],
@@ -1196,10 +1197,10 @@ class _HomePageState extends State<HomePage> {
                         ])
                       ],
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 1,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     // Row(
@@ -1239,7 +1240,7 @@ class _HomePageState extends State<HomePage> {
             const EdgeInsets.only(top: 10, bottom: 10, right: 30, left: 30),
         child: Text(
           text,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
@@ -1255,7 +1256,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 5,
-            offset: Offset(0, 0), // changes position of shadow
+            offset: const Offset(0, 0), // changes position of shadow
           ),
         ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
@@ -1283,39 +1284,39 @@ class _HomePageState extends State<HomePage> {
                     width: width * .28,
                     child: Text(
                       place,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     )),
-                Icon(
+                const Icon(
                   Icons.star,
                   color: Colors.teal,
                   size: 12,
                 ),
-                Text("4.5"),
+                const Text("4.5"),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               //mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Icon(
+                const Icon(
                   Icons.location_on,
                   color: Colors.grey,
                   size: 14,
                 ),
-                SizedBox(
+                const SizedBox(
                     //width: width * .28,
                     child: Text(
                   "Nuda Penida, Maldives",
-                  style: TextStyle(fontSize: 10),
+                  style: const TextStyle(fontSize: 10),
                 )),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -1326,7 +1327,7 @@ class _HomePageState extends State<HomePage> {
                   RichText(
                     text: new TextSpan(
                       text: '\$110/',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
@@ -1343,15 +1344,15 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BestDealsDetail()),
+                            builder: (context) => const BestDealsDetail()),
                       );
                     },
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.orange)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
+                      child: const Padding(
+                        padding: EdgeInsets.only(
                             top: 5, bottom: 5, right: 10, left: 10),
                         child: Text(
                           "Book",
@@ -1379,7 +1380,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 5,
-            offset: Offset(0, 0), // changes position of shadow
+            offset: const Offset(0, 0), // changes position of shadow
           ),
         ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
@@ -1407,39 +1408,39 @@ class _HomePageState extends State<HomePage> {
                     width: width * .28,
                     child: Text(
                       place,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     )),
-                Icon(
+                const Icon(
                   Icons.star,
                   color: Colors.teal,
                   size: 12,
                 ),
-                Text("4.5"),
+                const Text("4.5"),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               //mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Icon(
+                const Icon(
                   Icons.location_on,
                   color: Colors.grey,
                   size: 14,
                 ),
-                SizedBox(
+                const SizedBox(
                     //width: width * .28,
-                    child: Text(
+                    child: const Text(
                   "Nuda Penida, Maldives",
                   style: TextStyle(fontSize: 10),
                 )),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -1450,7 +1451,7 @@ class _HomePageState extends State<HomePage> {
                   RichText(
                     text: new TextSpan(
                       text: '\$110/',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
@@ -1467,15 +1468,16 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DestinationWeddingDetail()),
+                            builder: (context) =>
+                                const DestinationWeddingDetail()),
                       );
                     },
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.orange)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
+                      child: const Padding(
+                        padding: EdgeInsets.only(
                             top: 5, bottom: 5, right: 10, left: 10),
                         child: Text(
                           "Book",
@@ -1503,7 +1505,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 5,
-            offset: Offset(0, 0), // changes position of shadow
+            offset: const Offset(0, 0), // changes position of shadow
           ),
         ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
@@ -1531,26 +1533,26 @@ class _HomePageState extends State<HomePage> {
                     width: width * .28,
                     child: Text(
                       place,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     )),
-                Icon(
+                const Icon(
                   Icons.star,
                   color: Colors.teal,
                   size: 12,
                 ),
-                Text("4.5"),
+                const Text("4.5"),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               //mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Icon(
+                const Icon(
                   Icons.location_on,
                   color: Colors.grey,
                   size: 14,
@@ -1559,11 +1561,11 @@ class _HomePageState extends State<HomePage> {
                     //width: width * .28,
                     child: Text(
                   location,
-                  style: TextStyle(fontSize: 10),
+                  style: const TextStyle(fontSize: 10),
                 )),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -1574,7 +1576,7 @@ class _HomePageState extends State<HomePage> {
                   RichText(
                     text: new TextSpan(
                       text: '\$110/',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
@@ -1591,17 +1593,17 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HotelRoomDetails()),
+                            builder: (context) => const HotelRoomDetails()),
                       );
                     },
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.orange)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
+                      child: const Padding(
+                        padding: EdgeInsets.only(
                             top: 5, bottom: 5, right: 10, left: 10),
-                        child: Text(
+                        child: const Text(
                           "Book",
                           style: TextStyle(fontSize: 12),
                         ),
@@ -1660,7 +1662,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 5,
-            offset: Offset(0, 0), // changes position of shadow
+            offset: const Offset(0, 0), // changes position of shadow
           ),
         ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
@@ -1688,7 +1690,7 @@ class _HomePageState extends State<HomePage> {
                     width: width * .35,
                     child: Text(
                       place,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     )),
                 // Icon(
                 //   Icons.star,
@@ -1698,16 +1700,16 @@ class _HomePageState extends State<HomePage> {
                 // Text("4.5"),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               //mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Icon(
+                const Icon(
                   Icons.location_on,
                   color: Colors.grey,
                   size: 14,
@@ -1716,11 +1718,11 @@ class _HomePageState extends State<HomePage> {
                     //width: width * .28,
                     child: Text(
                   location,
-                  style: TextStyle(fontSize: 10),
+                  style: const TextStyle(fontSize: 10),
                 )),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -1731,7 +1733,7 @@ class _HomePageState extends State<HomePage> {
                   RichText(
                     text: new TextSpan(
                       text: '\$110/',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
@@ -1748,15 +1750,15 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ExoticPlaceDetail()),
+                            builder: (context) => const ExoticPlaceDetail()),
                       );
                     },
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.teal)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
+                      child: const Padding(
+                        padding: EdgeInsets.only(
                             top: 5, bottom: 5, right: 10, left: 10),
                         child: Text(
                           "Book",
@@ -1784,7 +1786,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 5,
-            offset: Offset(0, 0), // changes position of shadow
+            offset: const Offset(0, 0), // changes position of shadow
           ),
         ], color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
@@ -1808,13 +1810,13 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Row(children: [
-                Text(
+                const Text(
                   "4 days 3 night",
-                  style: TextStyle(color: Colors.teal),
+                  style: const TextStyle(color: Colors.teal),
                 )
               ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -1826,7 +1828,7 @@ class _HomePageState extends State<HomePage> {
                       width: width * .5,
                       child: Text(
                         place,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       )),
                   // Icon(
@@ -1838,7 +1840,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -1846,10 +1848,10 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 //mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 0,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.location_on,
                     color: Colors.grey,
                     size: 14,
@@ -1858,12 +1860,12 @@ class _HomePageState extends State<HomePage> {
                       //width: width * .28,
                       child: Text(
                     location,
-                    style: TextStyle(fontSize: 10),
+                    style: const TextStyle(fontSize: 10),
                   )),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -1874,7 +1876,7 @@ class _HomePageState extends State<HomePage> {
                   RichText(
                     text: new TextSpan(
                       text: '\$110/',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
@@ -1892,12 +1894,12 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.orange)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
+                      child: const Padding(
+                        padding: EdgeInsets.only(
                             top: 5, bottom: 5, right: 10, left: 10),
-                        child: Text(
+                        child: const Text(
                           "Book",
-                          style: TextStyle(fontSize: 12),
+                          style: const TextStyle(fontSize: 12),
                         ),
                       ),
                     ),

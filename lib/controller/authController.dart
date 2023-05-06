@@ -13,13 +13,17 @@ class AuthController extends GetxController {
   static AuthController instance = Get.find();
   Map? user;
   List<dynamic> exoticplaceList = [];
+  List<dynamic> dealsList = [];
   Map? indexPageList;
+  Map? logoList;
 // Map? fulldata;
   @override
   void onInit() {
     // TODO: implement onInit
     getExoticpalce();
     getIndexPage();
+    getDeals();
+    getlogo();
     super.onInit();
     log("AuthController onInit");
   }
@@ -28,8 +32,16 @@ class AuthController extends GetxController {
     ApiService().exoticLocation().then((value) => exoticplaceList = value);
   }
 
+  getDeals() {
+    ApiService().deals().then((value) => dealsList = value);
+  }
+
   getIndexPage() {
     ApiService().indexPage().then((value) => indexPageList = value);
+  }
+
+  getlogo() {
+    ApiService().logo().then((value) => logoList = value);
   }
 
 //  actionRemeberMe(bool value) {

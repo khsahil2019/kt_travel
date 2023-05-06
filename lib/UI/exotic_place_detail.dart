@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+import '../controller/authController.dart';
+
 class ExoticPlaceDetail extends StatefulWidget {
   const ExoticPlaceDetail() : super();
 
@@ -11,6 +13,7 @@ class ExoticPlaceDetail extends StatefulWidget {
 }
 
 class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
+  bool isInclude = false;
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -22,290 +25,690 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: ListView(
               children: [
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      // for (var x in authController.exoticplaceList)
+                      Column(
+                        children: [
+                          // Row(
+                          //   children: [
+                          //     GestureDetector(
+                          //         onTap: () {
+                          //           Navigator.pop(context);
+                          //         },
+                          //         child: Icon(Icons.arrow_back_sharp))
+                          //   ],
+                          // ),
+                          CarouselSlider(
+                            options: CarouselOptions(
+                              height: 200.0,
+                              autoPlay: true,
+                              enlargeCenterPage: true,
+                              aspectRatio: 16 / 9,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              enableInfiniteScroll: true,
+                              autoPlayAnimationDuration:
+                                  Duration(milliseconds: 800),
+                              viewportFraction: 0.9,
+                            ),
+                            items: [
+                              'assets/img/beach.jpg',
+                              'assets/img/desti2.jpeg',
+                              'assets/img/desti3.jpeg',
+                            ]
+                                .map((item) => Container(
+                                      child: Center(
+                                        child:
+                                            // Image.network(
+                                            //   x['cruxtech.in/admin/packageimage/PackageImage'],
+                                            //   width: 100,
+                                            // ),
+                                            Image.asset(
+                                          item,
+                                          fit: BoxFit.cover,
+                                          height: 400.0,
+                                        ),
+                                      ),
+                                    ))
+                                .toList(),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                authController.exoticplaceList[0]["PackageName"]
+                                    .toString(),
+                                style: TextStyle(
+                                    fontFamily: "Sail",
+                                    fontSize: 28,
+                                    color: Colors.teal),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // SizedBox(
+                              //   width: 0,
+                              // ),
+                              const Icon(
+                                Icons.location_on,
+                                color: Colors.grey,
+                                size: 14,
+                              ),
+                              SizedBox(
+                                  //width: width * .28,
+                                  child: Text(
+                                authController.exoticplaceList[0]
+                                    ['PackageLocation'],
+                                style: const TextStyle(fontSize: 12),
+                              )),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+
+                          Text(
+                              authController.exoticplaceList[0]
+                                  ['PackageFetures'],
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 18, color: Colors.orange)),
+                          SizedBox(
+                            height: 10,
+                          ),
+
+                          Text(
+                              authController.exoticplaceList[0]
+                                  ['PackageDetails'],
+                              textAlign: TextAlign.center,
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.teal)),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                  width: width * .9,
+                                  child: Text("Rs " +
+                                      authController.exoticplaceList[0]
+                                              ["PackagePrice"]
+                                          .toString() +
+                                      "/per Person")),
+                              Icon(Icons.person_outline),
+                              // Icon(Icons.person_outline),
+                              // Icon(Icons.person_outline)
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+
+                          SizedBox(
+                            height: 10,
+                          ),
+
+                          // ),
+                          Row(
+                            children: [
+                              Text(
+                                "Highlights",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: Colors.orange),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.check, color: Colors.teal),
+                              SizedBox(
+                                width: width * .05,
+                              ),
+                              SizedBox(
+                                width: width * .9,
+                                child: Text(
+                                  authController.exoticplaceList[0]["high1"],
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.check, color: Colors.teal),
+                              SizedBox(
+                                width: width * .05,
+                              ),
+                              SizedBox(
+                                width: width * .9,
+                                child: Text(
+                                  authController.exoticplaceList[0]["high2"],
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.check, color: Colors.teal),
+                              SizedBox(
+                                width: width * .05,
+                              ),
+                              SizedBox(
+                                width: width * .9,
+                                child: Text(
+                                  authController.exoticplaceList[0]["high3"],
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.check, color: Colors.teal),
+                              SizedBox(
+                                width: width * .05,
+                              ),
+                              SizedBox(
+                                width: width * .9,
+                                child: Text(
+                                  authController.exoticplaceList[0]["high4"],
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.check, color: Colors.teal),
+                              SizedBox(
+                                width: width * .05,
+                              ),
+                              SizedBox(
+                                width: width * .9,
+                                child: Text(
+                                  authController.exoticplaceList[0]["high5"],
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.check, color: Colors.teal),
+                              SizedBox(
+                                width: width * .05,
+                              ),
+                              SizedBox(
+                                width: width * .9,
+                                child: Text(
+                                  authController.exoticplaceList[0]["high6"],
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isInclude = true;
+                                  });
+                                  // isInclude == true
+                                  //     ? Text("data")
+                                  //     : Text("data2");
+                                },
+                                child: Container(
+                                    width: width * .3,
+                                    padding: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                        color: isInclude
+                                            ? Color.fromARGB(255, 228, 224, 224)
+                                            : Colors.white,
+                                        borderRadius: BorderRadius.circular(18),
+                                        border: Border.all(
+                                          color: isInclude
+                                              ? Colors.orange
+                                              : Colors.teal,
+                                        )),
+                                    child: Center(child: Text("Included"))),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isInclude = false;
+                                  });
+                                },
+                                child: Container(
+                                    width: width * .3,
+                                    padding: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                        color: isInclude
+                                            ? Colors.white
+                                            : Color.fromARGB(
+                                                255, 228, 224, 224),
+                                        borderRadius: BorderRadius.circular(18),
+                                        border: Border.all(
+                                          color: isInclude
+                                              ? Colors.teal
+                                              : Colors.orange,
+                                        )),
+                                    child: Center(child: Text("Not Included"))),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          isInclude == true
+                              ? Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include1"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include2"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include3"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include4"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include5"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include6"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include7"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include8"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include9"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["include10"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude1"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude2"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude3"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude4"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude5"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude6"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude7"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude8"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude9"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.check, color: Colors.teal),
+                                        SizedBox(
+                                          width: width * .05,
+                                        ),
+                                        SizedBox(
+                                          width: width * .9,
+                                          child: Text(
+                                            authController.exoticplaceList[0]
+                                                ["notinclude10"],
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+
+                          SizedBox(
+                            height: 30,
+                          ),
+                          GestureDetector(
                             onTap: () {
-                              Navigator.pop(context);
+                              //  _openPopup(context);
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (context) => ReviewDetail()),
+                              // );
                             },
-                            child: Icon(Icons.arrow_back_sharp))
-                      ],
-                    ),
-                    CarouselSlider(
-                      options: CarouselOptions(
-                        height: 200.0,
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        aspectRatio: 16 / 9,
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        enableInfiniteScroll: true,
-                        autoPlayAnimationDuration: Duration(milliseconds: 800),
-                        viewportFraction: 0.9,
-                      ),
-                      items: [
-                        'assets/img/desti1.jpg',
-                        'assets/img/desti2.jpeg',
-                        'assets/img/desti3.jpeg',
-                      ]
-                          .map((item) => Container(
-                                child: Center(
-                                  child: Image.asset(
-                                    item,
-                                    fit: BoxFit.cover,
-                                    height: 400.0,
+                            child: Container(
+                              width: width * .9,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.orange),
+                                borderRadius: BorderRadius.circular(30.0),
+                                color: Colors.white,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Book Now',
+                                  style: TextStyle(
+                                    color: Colors.teal,
+                                    fontSize: 18.0,
                                   ),
                                 ),
-                              ))
-                          .toList(),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Royal Grand Hotel",
-                          style: TextStyle(
-                              fontFamily: "Sail",
-                              fontSize: 28,
-                              color: Colors.teal),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(width: 300, child: Text("Rs-3200 /per night")),
-                        Icon(Icons.person_outline),
-                        Icon(Icons.person_outline),
-                        Icon(Icons.person_outline)
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
+                              ),
                             ),
-                          ],
-                          borderRadius: BorderRadius.circular(12),
-                          color: Color.fromARGB(255, 161, 238, 230)
-                          // color: Color.fromARGB(255, 247, 178, 75)
+                          ),
 
-                          ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.wifi,
-                                color: Colors.black,
-                              ),
-                              SizedBox(height: 5.0),
-                              Text('Free wifi'),
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.free_breakfast,
-                                color: Colors.black,
-                              ),
-                              SizedBox(height: 5.0),
-                              Text('BreakFast'),
-                            ],
-                          ),
-                          // SizedBox(width: 50.0),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.park,
-                                color: Colors.black,
-                              ),
-                              SizedBox(height: 5.0),
-                              Text('Parking'),
-                            ],
-                          ),
-                          // SizedBox(width: 50.0),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.pool,
-                                color: Colors.black,
-                              ),
-                              SizedBox(height: 5.0),
-                              Text('Swimming Pool'),
-                            ],
-                          ),
+                          // Add additional facilities and details below the slideshow
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                        "This suite features a tiles/marble floor , minibar  and seating area"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Room Facilities :",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.orange),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: width * .6,
-                          child: Text(
-                            "- Tea/Coffee maker",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                        ),
-                        Text(
-                          "- Television",
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: width * .6,
-                          child: Text(
-                            "- Air conditioner Room",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                        ),
-                        Text(
-                          "- Clean Bed Sheet",
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: width * .6,
-                          child: Text(
-                            "- Sofa Set",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                        ),
-                        Text(
-                          "- Dining table",
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: width * .6,
-                          child: Text(
-                            "- Toilet",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                        ),
-                        Text(
-                          "- WashRoom",
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: width * .6,
-                          child: Text(
-                            "- Help Line Number",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                        ),
-                        Text(
-                          "- Bell Service",
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        _openPopup(context);
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => ReviewDetail()),
-                        // );
-                      },
-                      child: Container(
-                        width: width * .9,
-                        height: 40.0,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.orange),
-                          borderRadius: BorderRadius.circular(30.0),
-                          color: Colors.white,
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Book Now',
-                            style: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    // Add additional facilities and details below the slideshow
-                  ],
-                ),
+                    ],
+                  ),
+                )
               ],
             ),
           )

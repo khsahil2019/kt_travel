@@ -206,10 +206,78 @@ class ApiService {
     }
   }
 
+  Future<List<dynamic>> deals() async {
+    //showLoading();
+    var client = http.Client();
+    Uri uri = Uri.https(baseUrl, 'api/Deals.php');
+    log("uri: " + uri.toString());
+
+    try {
+      var response = await client.post(uri, headers: _header, body: null);
+      Map<String, dynamic> _res = jsonDecode(response.body);
+      // log("response: " + _res.toString());
+      log("status code" + response.statusCode.toString());
+      if (response.statusCode == 200) {
+        dismissLoadingWidget();
+        if (_res["status"] == 1) {
+          return _res['data'];
+        } else {
+          return [];
+        }
+      }
+
+      return [];
+    } on SocketException catch (e) {
+      dismissLoadingWidget();
+      // showToastMessage("No Internet Connection", Icons.error);
+      log("no internet catch: " + e.toString());
+      return [];
+    } catch (e) {
+      dismissLoadingWidget();
+      // showToastMessage(e.toString(), Icons.error);
+      log("error catch: " + e.toString());
+      return [];
+    }
+  }
+
   Future<Map> indexPage() async {
     //showLoading();
     var client = http.Client();
     Uri uri = Uri.https(baseUrl, 'api/indexpage.php');
+    log("uri: " + uri.toString());
+
+    try {
+      var response = await client.post(uri, headers: _header, body: null);
+      Map<String, dynamic> _res = jsonDecode(response.body);
+      // log("response: " + _res.toString());
+      log("status code" + response.statusCode.toString());
+      if (response.statusCode == 200) {
+        dismissLoadingWidget();
+        if (_res["status"] == 1) {
+          return _res['data'];
+        } else {
+          return {};
+        }
+      }
+
+      return {};
+    } on SocketException catch (e) {
+      dismissLoadingWidget();
+      // showToastMessage("No Internet Connection", Icons.error);
+      log("no internet catch: " + e.toString());
+      return {};
+    } catch (e) {
+      dismissLoadingWidget();
+      // showToastMessage(e.toString(), Icons.error);
+      log("error catch: " + e.toString());
+      return {};
+    }
+  }
+
+  Future<Map> logo() async {
+    //showLoading();
+    var client = http.Client();
+    Uri uri = Uri.https(baseUrl, 'api/logo.php');
     log("uri: " + uri.toString());
 
     try {

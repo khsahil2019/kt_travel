@@ -88,8 +88,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // log(authController.)
     // log("asdfaf" + authController.user.toString());
-    log("Exotic place" + authController.exoticplaceList.toString());
-    log("index" + authController.indexPageList.toString());
+    log("Exotic place :" + authController.exoticplaceList.toString());
+    log("index : " + authController.indexPageList.toString());
+    log("Deals : " + authController.dealsList.toString());
+    log("logo : " + authController.logoList.toString());
     // ignore: unused_local_variable
     double width = MediaQuery.of(context).size.width - 40;
     return Scaffold(
@@ -193,16 +195,21 @@ class _HomePageState extends State<HomePage> {
                             )
                           ],
                         ),
-                        Image.asset(
-                          "assets/img/first.png",
-                          height: 150,
-                          width: 150,
-                        )
+                        Image.network(
+                            "https://cruxtech.in/admin/index_images/" +
+                                authController.indexPageList!["pimg"],
+                            height: 150,
+                            width: 150),
                       ],
                     ),
                     const SizedBox(
                       height: 30,
                     ),
+                    // Image.network(
+                    //     "https://cruxtech.in/admin/index_images/" +
+                    //         authController.indexPageList!["pimg"],
+                    //     height: 150,
+                    //     width: 150),
                     // Text(authController.exoticplaceList[0].toString()),
                     //Text(authController.exoticplaceList.length.toString()),
                     // Text(authController.indexPageList!.length.toString()),
@@ -243,6 +250,7 @@ class _HomePageState extends State<HomePage> {
                           textAlign: TextAlign.center,
                           style: const TextStyle(color: Colors.teal),
                         )),
+
                     // RichText(
                     //   textAlign: TextAlign.center,
                     //   text: new TextSpan(
@@ -298,11 +306,17 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: Column(
                             children: [
-                              Image.asset(
-                                "assets/img/8.png",
-                                height: 100,
-                                width: 100,
-                              ),
+                              // Image.network(
+                              //   authController.indexPageList![
+                              //       'cruxtech.in/admin/index_images/6.png'],
+                              //   height: 100,
+                              //   width: 100,
+                              // ),
+                              Image.network(
+                                  "https://cruxtech.in/admin/index_images/" +
+                                      authController.indexPageList!["icon1"],
+                                  height: 100,
+                                  width: 100),
                               const SizedBox(
                                 height: 10,
                               ),
@@ -323,11 +337,11 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: Column(
                             children: [
-                              Image.asset(
-                                "assets/img/7.png",
-                                height: 100,
-                                width: 100,
-                              ),
+                              Image.network(
+                                  "https://cruxtech.in/admin/index_images/" +
+                                      authController.indexPageList!["icon2"],
+                                  height: 100,
+                                  width: 100),
                               const SizedBox(
                                 height: 10,
                               ),
@@ -349,11 +363,11 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: Column(
                             children: [
-                              Image.asset(
-                                "assets/img/9.png",
-                                height: 95,
-                                width: 100,
-                              ),
+                              Image.network(
+                                  "https://cruxtech.in/admin/index_images/" +
+                                      authController.indexPageList!["icon3"],
+                                  height: 100,
+                                  width: 100),
                               const SizedBox(
                                 height: 15,
                               ),
@@ -383,11 +397,11 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: Column(
                             children: [
-                              Image.asset(
-                                "assets/img/8.png",
-                                height: 100,
-                                width: 100,
-                              ),
+                              Image.network(
+                                  "https://cruxtech.in/admin/index_images/" +
+                                      authController.indexPageList!["icon4"],
+                                  height: 100,
+                                  width: 100),
                               const SizedBox(
                                 height: 10,
                               ),
@@ -400,11 +414,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Column(
                           children: [
-                            Image.asset(
-                              "assets/img/6.png",
-                              height: 100,
-                              width: 100,
-                            ),
+                            Image.network(
+                                "https://cruxtech.in/admin/index_images/" +
+                                    authController.indexPageList!["icon5"],
+                                height: 100,
+                                width: 100),
                             const SizedBox(
                               height: 10,
                             ),
@@ -508,7 +522,7 @@ class _HomePageState extends State<HomePage> {
                     SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(children: [
-                          for (var x in authController.exoticplaceList)
+                          for (var x in authController.dealsList)
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Container(
@@ -533,19 +547,25 @@ class _HomePageState extends State<HomePage> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Container(
-                                          decoration: BoxDecoration(
+                                        decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
-                                            image: const DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/img/beach.jpg'),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          child: Image.asset(
-                                              "assets/img/beach.jpg",
-                                              height: 130,
-                                              width: width * .7)),
+                                            image: new DecorationImage(
+                                                image: NetworkImage(
+                                                  "https://cruxtech.in/admin/packageimage/" +
+                                                      x["PackageImage"],
+                                                ),
+                                                fit: BoxFit.cover)),
+                                        child: Image.network(
+                                            "https://cruxtech.in/admin/packageimage/" +
+                                                x["PackageImage"],
+                                            height: 130,
+                                            width: width * .7),
+                                        //  Image.asset(
+                                        //     "assets/img/beach.jpg",
+                                        //     height: 130,
+                                        //     width: width * .7)
+                                      ),
                                     ),
 
                                     Padding(
@@ -667,22 +687,28 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                  border: Border.all(
-                                                      color: Colors.orange)),
-                                              child: const Padding(
-                                                padding: EdgeInsets.only(
-                                                    top: 5,
-                                                    bottom: 5,
-                                                    right: 10,
-                                                    left: 10),
-                                                child: const Text(
-                                                  "Book",
-                                                  style:
-                                                      TextStyle(fontSize: 12),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Get.to(BestDealsDetail());
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    border: Border.all(
+                                                        color: Colors.orange)),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 5,
+                                                      bottom: 5,
+                                                      right: 10,
+                                                      left: 10),
+                                                  child: const Text(
+                                                    "Book",
+                                                    style:
+                                                        TextStyle(fontSize: 12),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -709,12 +735,16 @@ class _HomePageState extends State<HomePage> {
                     //   ),
                     // ),
                     const SizedBox(
-                      height: 20,
+                      height: 50,
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    button("See All"),
+                    // const SizedBox(
+                    //   height: 30,
+                    // ),
+                    GestureDetector(
+                        onTap: () {
+                          Get.to(BestDeals());
+                        },
+                        child: button("See All")),
                     const SizedBox(
                       height: 20,
                     ),
@@ -768,7 +798,7 @@ class _HomePageState extends State<HomePage> {
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Container(
-                                width: width * .41,
+                                width: width * .45,
                                 decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -786,16 +816,23 @@ class _HomePageState extends State<HomePage> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            image: const DecorationImage(
-                                              image: AssetImage('assets/img/'),
-                                              fit: BoxFit.cover,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          image: DecorationImage(
+                                            image: NetworkImage(
+                                              "https://cruxtech.in/admin/packageimage/" +
+                                                  x["PackageImage"],
                                             ),
+                                            fit: BoxFit.cover,
                                           ),
-                                          child: Image.asset("assets/img/",
-                                              height: 130, width: 130)),
+                                        ),
+                                        child: Image.network(
+                                            "https://cruxtech.in/admin/packageimage/" +
+                                                x["PackageImage"],
+                                            height: 130,
+                                            width: width * .5),
+                                      ),
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -833,7 +870,7 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                             //width: width * .28,
                                             child: Text(
-                                          x['PackageName'],
+                                          x['PackageLocation'],
                                           style: const TextStyle(fontSize: 10),
                                         )),
                                       ],
@@ -849,7 +886,9 @@ class _HomePageState extends State<HomePage> {
                                         children: [
                                           RichText(
                                             text: new TextSpan(
-                                              text: '\$110/',
+                                              text: 'Rs ' +
+                                                  x["PackagePrice"] +
+                                                  '/',
                                               style: const TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 12,
@@ -866,12 +905,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           GestureDetector(
                                             onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const ExoticPlaceDetail()),
-                                              );
+                                              Get.to(ExoticPlaceDetail());
                                             },
                                             child: Container(
                                               decoration: BoxDecoration(

@@ -36,7 +36,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(body: SplashScreen());
   }

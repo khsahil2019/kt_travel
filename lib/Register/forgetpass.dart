@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kt_travel/Register/login.dart';
+
+import '../helper/snackbar.dart';
 
 class ForgotScreen extends StatefulWidget {
   @override
@@ -26,7 +30,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                 style: TextStyle(
                   fontSize: 40.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: Colors.teal,
                   // fontFamily: "Sail"
                 ),
               ),
@@ -35,7 +39,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                 style: TextStyle(
                   fontSize: 40.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: Colors.teal,
                   // fontFamily: "Sail"
                 ),
               ),
@@ -66,7 +70,15 @@ class _ForgotScreenState extends State<ForgotScreen> {
 
               //  SizedBox(height: 20.0),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.orange, // Customize the button color here
+                ),
                 onPressed: () {
+                  showSnakbar("Success",
+                      "Password has been sent to the given email address");
+                  // const AsyncSnapshot.waiting();
+                  Get.to(LoginScreen());
+
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(builder: (context) => VerifyScreen()),

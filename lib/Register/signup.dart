@@ -80,7 +80,7 @@ class _SignupPageState extends State<SignupPage> {
                 style: TextStyle(
                   fontSize: 30.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: Colors.teal,
                   // fontFamily: "Sail"
                 ),
               ),
@@ -131,6 +131,9 @@ class _SignupPageState extends State<SignupPage> {
 
               SizedBox(height: 56),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.orange, // Customize the button color here
+                ),
                 onPressed: () {
                   // _submitForm();
                   ApiService().Signup(
@@ -158,7 +161,7 @@ class _SignupPageState extends State<SignupPage> {
               SizedBox(height: 16),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey, //background color of button
+                  primary: Colors.teal, //background color of button
                 ),
                 onPressed: () {
                   Get.to(LoginScreen());

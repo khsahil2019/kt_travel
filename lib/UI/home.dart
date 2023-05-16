@@ -868,11 +868,12 @@ class _HomePageState extends State<HomePage> {
                                           size: 14,
                                         ),
                                         SizedBox(
-                                            //width: width * .28,
+                                            width: width * .35,
                                             child: Text(
-                                          x['PackageLocation'],
-                                          style: const TextStyle(fontSize: 10),
-                                        )),
+                                              x['PackageLocation'],
+                                              style:
+                                                  const TextStyle(fontSize: 10),
+                                            )),
                                       ],
                                     ),
                                     const SizedBox(

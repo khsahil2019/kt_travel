@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     // Wait for 3 seconds and then navigate to the next screen
     Future.delayed(Duration(seconds: 3), () {
-      Get.to(LoginScreen());
+      Get.to(HomePage());
       // Navigator.pushReplacement(
       //   context,
       //   MaterialPageRoute(builder: (context) => LoginScreen()),

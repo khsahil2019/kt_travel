@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.primary,
+                    color: Colors.teal,
                     fontFamily: "Sail"),
               ),
               SizedBox(height: 40.0),
@@ -101,7 +101,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     },
                   ),
-                  Text('Remember me'),
+                  Text(
+                    'Remember me',
+                    style: TextStyle(color: Colors.teal),
+                  ),
                   Spacer(),
                   TextButton(
                     onPressed: () {
@@ -111,12 +114,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         MaterialPageRoute(builder: (context) => ForgotScreen()),
                       );
                     },
-                    child: Text('Forgot Password'),
+                    child: Text(
+                      'Forgot Password',
+                      style: TextStyle(color: Colors.orange),
+                    ),
                   ),
                 ],
               ),
               SizedBox(height: 20.0),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.orange, // Customize the button color here
+                ),
                 onPressed: () {
                   ApiService().logIn(_emailController.text.trim(),
                       _passwordController.text.trim());
@@ -135,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 20.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey, //background color of button
+                  primary: Colors.teal, //background color of button
                 ),
                 onPressed: () {
                   Get.to(SignupPage());

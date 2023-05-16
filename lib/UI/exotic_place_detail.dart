@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
+import 'package:kt_travel/Register/login.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../controller/authController.dart';
@@ -78,20 +80,27 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
                             height: 20,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            // mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                authController.exoticplaceList[0]["PackageName"]
-                                    .toString(),
-                                style: TextStyle(
-                                    fontFamily: "Sail",
-                                    fontSize: 28,
-                                    color: Colors.teal),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              SizedBox(
+                                width: width * .9,
+                                child: Text(
+                                  authController.exoticplaceList[0]
+                                          ["PackageName"]
+                                      .toString(),
+                                  style: TextStyle(
+                                      fontFamily: "Sail",
+                                      fontSize: 28,
+                                      color: Colors.teal),
+                                ),
                               ),
                             ],
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +123,7 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
                             ],
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 30,
                           ),
 
                           Text(
@@ -124,7 +133,7 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
                               style: TextStyle(
                                   fontSize: 18, color: Colors.orange)),
                           SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
 
                           Text(
@@ -151,11 +160,7 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
                             ],
                           ),
                           SizedBox(
-                            height: 20,
-                          ),
-
-                          SizedBox(
-                            height: 10,
+                            height: 30,
                           ),
 
                           // ),
@@ -508,166 +513,236 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
                                     SizedBox(
                                       height: 15,
                                     ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude1"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude2"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude3"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude4"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude5"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude6"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude7"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude8"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude9"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.check, color: Colors.teal),
-                                        SizedBox(
-                                          width: width * .05,
-                                        ),
-                                        SizedBox(
-                                          width: width * .9,
-                                          child: Text(
-                                            authController.exoticplaceList[0]
-                                                ["notinclude10"],
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude1"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude1"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude2"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude2"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude3"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude3"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude4"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude4"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude5"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude5"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude6"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude6"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude7"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude7"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude8"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude8"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude9"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude9"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
+                                    authController.exoticplaceList[0]
+                                                ["notinclude10"] !=
+                                            null
+                                        ? Row(
+                                            children: [
+                                              Icon(Icons.check,
+                                                  color: Colors.teal),
+                                              SizedBox(
+                                                width: width * .05,
+                                              ),
+                                              SizedBox(
+                                                width: width * .9,
+                                                child: Text(
+                                                  authController
+                                                          .exoticplaceList[0]
+                                                      ["notinclude10"],
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox(),
                                   ],
                                 ),
 
@@ -676,6 +751,7 @@ class _ExoticPlaceDetailState extends State<ExoticPlaceDetail> {
                           ),
                           GestureDetector(
                             onTap: () {
+                              Get.to(LoginScreen());
                               //  _openPopup(context);
                               // Navigator.push(
                               //   context,

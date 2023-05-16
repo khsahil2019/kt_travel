@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:kt_travel/Register/login.dart';
+import 'package:kt_travel/UI/booking_review.dart';
 import 'package:kt_travel/UI/exotic_place.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
@@ -47,7 +48,7 @@ class ApiService {
         if (_res["status"] == 1) {
           log("Log in success");
           authController.user = _res["data"];
-          Get.offAll(HomePage());
+          Get.to(ReviewDetail());
           showSnakbar("Welcome !", "Login Successful");
         } else {
           log("log in failed");

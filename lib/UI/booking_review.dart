@@ -1,5 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'booking_confirm.dart';
 
 class ReviewDetail extends StatefulWidget {
   const ReviewDetail({Key? key}) : super(key: key);
@@ -41,7 +44,8 @@ class _ReviewDetailState extends State<ReviewDetail> {
                           style: TextStyle(
                               fontFamily: "Sail",
                               fontSize: 28,
-                              color: Colors.blue.shade800),
+                              // color: Colors.blue.shade800
+                              color: Colors.teal),
                         ),
                       ],
                     ),
@@ -114,11 +118,11 @@ class _ReviewDetailState extends State<ReviewDetail> {
                             width: width * .8, child: Text("Payment Method")),
                         Icon(
                           Icons.add,
-                          color: Colors.blue.shade800,
+                          color: Colors.teal,
                         ),
                         Text(
                           "Add",
-                          style: TextStyle(color: Colors.blue.shade800),
+                          style: TextStyle(color: Colors.teal),
                         )
                       ],
                     ),
@@ -155,8 +159,7 @@ class _ReviewDetailState extends State<ReviewDetail> {
                     ),
                     Row(
                       children: [
-                        Text("Add coupon",
-                            style: TextStyle(color: Colors.blue.shade800))
+                        Text("Add coupon", style: TextStyle(color: Colors.teal))
                       ],
                     ),
                     Divider(
@@ -172,6 +175,7 @@ class _ReviewDetailState extends State<ReviewDetail> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        Get.to(BookingConfirmationScreen());
                         // Navigator.push(
                         //   context,
                         //   MaterialPageRoute(
@@ -183,7 +187,8 @@ class _ReviewDetailState extends State<ReviewDetail> {
                         height: 40.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.blue.shade800,
+                          color: Colors.orange,
+                          // color: Colors.blue.shade800,
                         ),
                         child: Center(
                           child: Text(

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
 import 'package:kt_travel/controller/authController.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../Register/login.dart';
 
 class BestDealsDetail extends StatefulWidget {
   const BestDealsDetail() : super();
@@ -744,6 +747,7 @@ class _BestDealsDetailState extends State<BestDealsDetail> {
                             ),
                             GestureDetector(
                               onTap: () {
+                                Get.to(LoginScreen());
                                 //  _openPopup(context);
                                 // Navigator.push(
                                 //   context,

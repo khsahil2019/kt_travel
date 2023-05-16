@@ -1,114 +1,165 @@
 import 'package:flutter/material.dart';
-import 'dart:developer';
-
-import '../widget.dart';
 
 class PlanForMe extends StatefulWidget {
-  const PlanForMe() : super();
-
   @override
-  State<PlanForMe> createState() => _PlanForMeState();
+  _PlanForMeState createState() => _PlanForMeState();
 }
 
 class _PlanForMeState extends State<PlanForMe> {
-  @override
+  final _formKey = GlobalKey<FormState>();
+  late String name;
   late String destination;
-  // List destinationList = ["Car", "Bus", "Train", "Aeroplane"];
   late String type;
-  late String date;
-  late String guest;
+  DateTime? fromDate;
+  DateTime? toDate;
+  late int guests;
 
-  // List<String> items = ["Car", "Bus", "Train", "Aeroplane"];
-  // Declare lists for dropdown options
+  Future<void> _selectDate(BuildContext context, bool isFromDate) async {
+    final DateTime? selectedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2025),
+    );
 
-  String currentItem = "";
+    if (selectedDate != null) {
+      setState(() {
+        if (isFromDate) {
+          fromDate = selectedDate;
+        } else {
+          toDate = selectedDate;
+        }
+      });
+    }
+  }
 
-  String selectval = "Tokyo";
-
+  @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    double width = MediaQuery.of(context).size.width - 40;
-
     return Scaffold(
-        // backgroundColor: const Color(0xFFEEE6EE),
-        body: Stack(children: [
-      Container(
-          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          child: ListView(children: [
-            Column(
+      appBar: AppBar(
+        title: Text('Flutter Form'),
+      ),
+      body: Stack(
+        children: [
+          Container(
+            child: ListView(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: 'Destination',
-                          hintText: 'Enter Destination',
-                          border: OutlineInputBorder(),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          children: <Widget>[
+                            TextFormField(
+                              decoration: InputDecoration(labelText: 'Name'),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter your name';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                name = value!;
+                              },
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            TextFormField(
+                              decoration:
+                                  InputDecoration(labelText: 'Destination'),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter a destination';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                destination = value!;
+                              },
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(labelText: 'Type'),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter a type';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                type = value!;
+                              },
+                            ),
+                            ListTile(
+                              title: Text('From Date'),
+                              subtitle: fromDate != null
+                                  ? Text(fromDate.toString())
+                                  : Text('Select a date'),
+                              onTap: () {
+                                _selectDate(context, true);
+                              },
+                            ),
+                            ListTile(
+                              title: Text('To Date'),
+                              subtitle: toDate != null
+                                  ? Text(toDate.toString())
+                                  : Text('Select a date'),
+                              onTap: () {
+                                _selectDate(context, false);
+                              },
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(labelText: 'Guests'),
+                              keyboardType: TextInputType.number,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter the number of guests';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                guests = int.parse(value!);
+                              },
+                            ),
+                            SizedBox(height: 16),
+                            ElevatedButton(
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+
+                                  // TODO: Process the form data
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            'Form submitted successfully')),
+                                  );
+                                }
+                              },
+                              child: Text('Submit'),
+                            ),
+                          ],
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your name';
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          setState(() {
-                            destination = value;
-                          });
-                        },
                       ),
-                      SizedBox(height: 16.0),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: 'Type',
-                          hintText: 'Enter your email',
-                          border: OutlineInputBorder(),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          setState(() {
-                            type = value;
-                          });
-                        },
-                      ),
-                      SizedBox(height: 16.0),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: 'Confirm Password',
-                          hintText: 'Confirm your password',
-                          border: OutlineInputBorder(),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please confirm your password';
-                          }
-                          if (value != date) {
-                            return 'Passwords do not match';
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          setState(() {
-                            guest = value;
-                          });
-                        },
-                      ),
-                      SizedBox(height: 16.0),
-                    ],
-                  ),
-                ),
+                    )
+                  ],
+                )
               ],
-            )
-          ])),
-    ]));
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
+
+// void main() {
+//   runApp(MaterialApp(
+//     home: PlanForMe(),
+//   ));
+// }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../Register/login.dart';
 
 class DestinationWeddingDetail extends StatefulWidget {
   const DestinationWeddingDetail() : super();
@@ -277,7 +280,7 @@ class _DestinationWeddingDetailState extends State<DestinationWeddingDetail> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        _openPopup(context);
+                        Get.to(LoginScreen());
                         // Navigator.push(
                         //   context,
                         //   MaterialPageRoute(

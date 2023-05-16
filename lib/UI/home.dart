@@ -30,6 +30,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isPlan = false;
   // late Map mapResponse;
   // // late Map dataResponse;
   // late List listResponse;
@@ -217,6 +218,10 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         GestureDetector(
                           onTap: () {
+                            // setState(() {
+                            //   isPlan = !isPlan;
+                            // });
+                            Get.to(PlanForMe());
                             // _openPopup(context);
                             // Navigator.push(
                             //   context,
@@ -240,6 +245,12 @@ class _HomePageState extends State<HomePage> {
                         //  Text("Get Price")
                       ],
                     ),
+                    // const SizedBox(
+                    //   height: 30,
+                    // ),
+                    // isPlan == true ?Column(children: [
+
+                    // ],):SizedBox(),
                     const SizedBox(
                       height: 30,
                     ),
